@@ -97,14 +97,11 @@ export default function WeaponRuleChips({
               }}
               style={{
                 ...styles.chip,
-                borderColor: accentRgb ? `rgba(${accentRgb}, 0.30)` : styles.chip.border,
-                background: accentRgb ? `rgba(${accentRgb}, 0.11)` : styles.chip.background,
+                borderColor: accentRgb ? `rgba(${accentRgb}, 0.30)` : "rgba(255, 255, 255, 0.09)",
+background: accentRgb ? `rgba(${accentRgb}, 0.11)` : "rgba(255, 255, 255, 0.028)",
               }}
               onMouseEnter={(e) => {
-                // Desktop: opening on hover matches prior behavior.
-                if (e.pointerType === "mouse") {
-                  placePopoverAtPoint(item.label, e.clientX, e.clientY);
-                }
+                placePopoverAtPoint(item.label, e.clientX, e.clientY);
               }}
               onPointerDown={(e) => {
                 // Mobile/touch: ensure tap opens the popover.
@@ -130,12 +127,12 @@ export default function WeaponRuleChips({
 
       {openKey && position && itemMap.get(openKey) && (
         <div
-          style={{
-            ...styles.popover,
-            top: position.top,
-            left: position.left,
-            borderColor: accentRgb ? `rgba(${accentRgb}, 0.30)` : styles.popover.border,
-          }}
+        style={{
+          ...styles.popover,
+          top: position.top,
+          left: position.left,
+          borderColor: accentRgb ? `rgba(${accentRgb}, 0.30)` : "rgba(255, 255, 255, 0.10)",
+        }}
         >
           <div style={styles.popoverTitle}>{openKey}</div>
           {itemMap.get(openKey)?.description ? (
