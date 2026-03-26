@@ -71,8 +71,8 @@ export default function KeywordChips({
               }}
               style={{
                 ...styles.chip,
-                borderColor: accentRgb ? `rgba(${accentRgb}, 0.30)` : (styles.chip.border as string),
-                background: accentRgb ? `rgba(${accentRgb}, 0.11)` : (styles.chip.background as string),
+                borderColor: accentRgb ? `rgba(${accentRgb}, 0.30)` : "rgba(255, 255, 255, 0.09)",
+                background: accentRgb ? `rgba(${accentRgb}, 0.11)` : "rgba(255, 255, 255, 0.028)",
               }}
               onClick={() =>
                 setOpenKeyword((cur) => {
@@ -92,8 +92,8 @@ export default function KeywordChips({
                   left: position.left,
                   transform: placement === "above" ? "translateY(-100%)" : "none",
                   borderColor: accentRgb
-                      ? `rgba(${accentRgb}, 0.30)`
-                      : (styles.popover.border as string),
+  ? `rgba(${accentRgb}, 0.30)`
+  : "rgba(255, 255, 255, 0.10)",
                 }}
               >
                 <div style={styles.popoverTitle}>Units with {item.keyword}</div>
