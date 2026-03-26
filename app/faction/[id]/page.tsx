@@ -40,9 +40,9 @@ export default async function FactionPage({
         }
         .factionDetachmentTile:hover {
           transform: translateY(-1px);
-          border-color: rgba(${accent.rgb}, 0.38);
-          background: rgba(${accent.rgb}, 0.10);
-          box-shadow: 0 0 0 1px rgba(${accent.rgb}, 0.18);
+          border-color: rgba(${accent.rgb}, 0.32);
+          background: rgba(${accent.rgb}, 0.08);
+          box-shadow: 0 0 0 1px rgba(${accent.rgb}, 0.15);
         }
         .factionUnits .unitHint {
           display: none;
@@ -103,7 +103,7 @@ const styles: Record<string, CSSProperties> = {
     color: "rgba(255, 255, 255, 0.92)",
   },
   container: {
-    padding: 16,
+    padding: 14,
     maxWidth: 720,
     margin: "0 auto",
   },
@@ -137,7 +137,7 @@ const styles: Record<string, CSSProperties> = {
   },
   title: {
     margin: 0,
-    fontSize: 30,
+    fontSize: 28,
     lineHeight: 1.15,
     fontWeight: 700,
     letterSpacing: "-0.03em",
@@ -146,16 +146,16 @@ const styles: Record<string, CSSProperties> = {
     marginTop: 10,
     marginBottom: 0,
     color: "rgba(255, 255, 255, 0.67)",
-    fontSize: 14,
+    fontSize: 13,
   },
   detachmentSection: {
     marginTop: 6,
     marginBottom: 6,
   },
   detachmentDetails: {
-    borderRadius: 13,
-    border: "1px solid rgba(255, 255, 255, 0.08)",
-    background: "rgba(255, 255, 255, 0.02)",
+    borderRadius: 12,
+    border: "1px solid rgba(255, 255, 255, 0.07)",
+    background: "rgba(255, 255, 255, 0.018)",
     overflow: "hidden",
     backdropFilter: "blur(6px)",
     transition: "all 0.2s ease",
@@ -170,7 +170,7 @@ const styles: Record<string, CSSProperties> = {
     listStyle: "none",
   },
   sectionTitle: {
-    fontSize: 12,
+    fontSize: 13,
     textTransform: "uppercase",
     letterSpacing: "0.06em",
     color: "rgba(255, 255, 255, 0.66)",
@@ -180,21 +180,21 @@ const styles: Record<string, CSSProperties> = {
   detachmentGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))",
-    gap: 8,
-    padding: 10,
+    gap: 7,
+    padding: 8,
   },
   detachmentCard: {
     display: "block",
-    borderRadius: 12,
-    border: "1px solid rgba(255, 255, 255, 0.10)",
-    background: "#111827",
-    padding: "10px 11px",
+    borderRadius: 11,
+    border: "1px solid rgba(255, 255, 255, 0.09)",
+    background: "rgba(255, 255, 255, 0.018)",
+    padding: "9px 10px",
     textDecoration: "none",
     color: "rgba(255, 255, 255, 0.94)",
     backdropFilter: "blur(6px)",
   },
   detachmentName: {
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: 700,
     letterSpacing: "-0.01em",
     lineHeight: 1.25,
@@ -222,5 +222,5 @@ function getFactionAccent(factionId: string) {
 }
 
 function getPageBackground(rgb: string) {
-  return `radial-gradient(900px 500px at 70% 0%, rgba(${rgb}, 0.16), transparent 56%), radial-gradient(800px 500px at 10% -10%, rgba(${rgb}, 0.09), transparent 60%), #0b0f14`;
+  return `radial-gradient(900px 500px at 70% 0%, rgba(${rgb}, 0.12), transparent 56%), radial-gradient(800px 500px at 10% -10%, rgba(${rgb}, 0.07), transparent 60%), #0b0f14`;
 }

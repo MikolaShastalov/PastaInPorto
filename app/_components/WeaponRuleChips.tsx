@@ -47,12 +47,32 @@ export default function WeaponRuleChips({
     const width = Math.min(240, vw - 16);
     const estimatedHeight = 190;
     const gap = 8;
-    const aboveSpace = rect.top;
-    const showBelow = aboveSpace < estimatedHeight;
+    const spaceAbove = rect.top;
+    const showBelow = spaceAbove < estimatedHeight;
 
     const desiredLeft = rect.left + rect.width / 2 - width / 2;
     const safeLeft = Math.max(8, Math.min(desiredLeft, vw - width - 8));
-    const top = showBelow ? rect.bottom + gap : rect.top - gap;
+    const top = showBelow ? rect.bottom + gap : rect.top - gap - estimatedHeight;
+
+    setPlacement(showBelow ? "below" : "above");
+    setPosition({ top, left: safeLeft });
+    setOpenKey(key);
+  };
+
+  const placePopoverAtPoint = (key: string, x: number, y: number) => {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const width = Math.min(240, vw - 16);
+    const estimatedHeight = 190;
+    const gap = 8;
+
+    // If there's not enough space above, show below.
+    const spaceAbove = y;
+    const showBelow = spaceAbove < estimatedHeight;
+
+    const desiredLeft = x - width / 2;
+    const safeLeft = Math.max(8, Math.min(desiredLeft, vw - width - 8));
+    const top = showBelow ? y + gap : y - gap - estimatedHeight;
 
     setPlacement(showBelow ? "below" : "above");
     setPosition({ top, left: safeLeft });
@@ -77,16 +97,29 @@ export default function WeaponRuleChips({
               }}
               style={{
                 ...styles.chip,
-                borderColor: accentRgb ? `rgba(${accentRgb}, 0.35)` : styles.chip.border,
-                background: accentRgb ? `rgba(${accentRgb}, 0.14)` : styles.chip.background,
+                borderColor: accentRgb ? `rgba(${accentRgb}, 0.30)` : styles.chip.border,
+                background: accentRgb ? `rgba(${accentRgb}, 0.11)` : styles.chip.background,
               }}
-              onMouseEnter={() => placePopover(item.label)}
-              onClick={() => {
-                if (isOpen) {
-                  setOpenKey(null);
-                } else {
-                  placePopover(item.label);
+              onMouseEnter={(e) => {
+                // Desktop: opening on hover matches prior behavior.
+                if (e.pointerType === "mouse") {
+                  placePopoverAtPoint(item.label, e.clientX, e.clientY);
                 }
+              }}
+              onPointerDown={(e) => {
+                // Mobile/touch: ensure tap opens the popover.
+                if (e.pointerType !== "mouse") {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  placePopoverAtPoint(item.label, e.clientX, e.clientY);
+                }
+              }}
+              onClick={(e) => {
+                // Also open on click for robustness (some mobile browsers synthesize click
+                // without pointer events). Keep tap-to-toggle behavior.
+                e.preventDefault();
+                e.stopPropagation();
+                placePopoverAtPoint(item.label, e.clientX, e.clientY);
               }}
             >
               {item.label}
@@ -101,8 +134,7 @@ export default function WeaponRuleChips({
             ...styles.popover,
             top: position.top,
             left: position.left,
-            transform: placement === "above" ? "translateY(-100%)" : "none",
-            borderColor: accentRgb ? `rgba(${accentRgb}, 0.35)` : styles.popover.border,
+            borderColor: accentRgb ? `rgba(${accentRgb}, 0.30)` : styles.popover.border,
           }}
         >
           <div style={styles.popoverTitle}>{openKey}</div>
@@ -117,46 +149,47 @@ export default function WeaponRuleChips({
 
 const styles: Record<string, CSSProperties> = {
   wrap: {
-    marginTop: 6,
+    marginTop: 4,
     display: "flex",
     flexWrap: "wrap",
     gap: 6,
   },
   chip: {
     borderRadius: 9999,
-    border: "1px solid rgba(255, 255, 255, 0.12)",
-    background: "rgba(255, 255, 255, 0.03)",
-    color: "rgba(255, 255, 255, 0.76)",
-    fontSize: 13,
+    border: "1px solid rgba(255, 255, 255, 0.11)",
+    background: "rgba(255, 255, 255, 0.028)",
+    color: "rgba(255, 255, 255, 0.80)",
+    fontSize: 12,
     fontWeight: 800,
-    padding: "3px 8px",
+    padding: "4px 9px",
     lineHeight: 1.2,
     cursor: "pointer",
     whiteSpace: "nowrap",
   },
   popover: {
     position: "fixed",
-    zIndex: 70,
+    zIndex: 75,
     width: 240,
     maxWidth: "calc(100vw - 16px)",
-    borderRadius: 10,
-    border: "1px solid rgba(255, 255, 255, 0.08)",
-    background: "rgba(20,20,30,0.95)",
-    boxShadow: "0 10px 26px rgba(0,0,0,0.35)",
-    padding: "10px 12px",
+    borderRadius: 12,
+    border: "1px solid rgba(255, 255, 255, 0.10)",
+    background: "rgba(10,14,22,0.93)",
+    backdropFilter: "blur(14px)",
+    boxShadow: "0 12px 34px rgba(0,0,0,0.40)",
+    padding: "9px 12px",
     transition: "opacity 0.15s ease, transform 0.15s ease",
     opacity: 1,
   },
   popoverTitle: {
-    fontSize: 13,
+    fontSize: 12,
     color: "rgba(255,255,255,0.95)",
     fontWeight: 700,
-    marginBottom: 6,
+    marginBottom: 5,
   },
   popoverDescription: {
-    fontSize: 13,
+    fontSize: 12.5,
     color: "rgba(255,255,255,0.9)",
-    lineHeight: 1.4,
+    lineHeight: 1.35,
     maxHeight: 220,
     overflowY: "auto",
   },

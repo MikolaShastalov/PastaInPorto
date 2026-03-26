@@ -127,16 +127,16 @@ const styles: Record<string, CSSProperties> = {
     minHeight: "100vh",
     color: "rgba(255, 255, 255, 0.92)",
     background:
-      "radial-gradient(900px 500px at 70% 0%, rgba(90, 130, 210, 0.18), transparent 55%), radial-gradient(800px 500px at 10% -10%, rgba(90, 130, 210, 0.10), transparent 60%), #070A10",
+      "radial-gradient(900px 500px at 70% 0%, rgba(90, 130, 210, 0.14), transparent 55%), radial-gradient(800px 500px at 10% -10%, rgba(90, 130, 210, 0.08), transparent 60%), #070A10",
   },
   container: {
     width: "100%",
     maxWidth: "100%",
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingLeft: 14,
+    paddingRight: 14,
   },
   headerRow: {
-    paddingTop: 8,
+    paddingTop: 6,
     paddingBottom: 10,
     display: "flex",
     alignItems: "stretch",
@@ -191,74 +191,74 @@ const styles: Record<string, CSSProperties> = {
     gap: 8,
   },
   card: {
-    borderRadius: 13,
-    border: "1px solid rgba(255, 255, 255, 0.08)",
+    borderRadius: 12,
+    border: "1px solid rgba(255, 255, 255, 0.07)",
     background: "rgba(255, 255, 255, 0.02)",
     padding: 10,
-    boxShadow: "0 10px 28px rgba(0,0,0,0.18)",
+    boxShadow: "0 10px 28px rgba(0,0,0,0.16)",
     backdropFilter: "blur(6px)",
     transition: "all 0.2s ease",
   },
   cardTitle: {
-    fontSize: 13,
+    fontSize: 12,
     textTransform: "uppercase",
-    letterSpacing: "0.06em",
-    color: "rgba(255, 255, 255, 0.66)",
-    fontWeight: 800,
-    marginBottom: 7,
+    letterSpacing: "0.055em",
+    color: "rgba(255, 255, 255, 0.62)",
+    fontWeight: 900,
+    marginBottom: 6,
   },
   ruleName: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: 800,
     letterSpacing: "-0.01em",
-    marginBottom: 8,
+    marginBottom: 7,
   },
   list: {
     display: "flex",
     flexDirection: "column",
-    gap: 10,
+    gap: 9,
   },
   item: {
-    borderRadius: 12,
-    border: "1px solid rgba(255, 255, 255, 0.08)",
+    borderRadius: 11,
+    border: "1px solid rgba(255, 255, 255, 0.07)",
     background: "rgba(255, 255, 255, 0.02)",
     overflow: "hidden",
     transition: "all 0.2s ease",
   },
   summary: {
     cursor: "pointer",
-    padding: "10px 12px",
+    padding: "9px 12px",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     gap: 12,
     listStyle: "none",
-    fontWeight: 950,
+    fontWeight: 900,
     letterSpacing: "-0.01em",
   },
   summaryText: {
-    fontSize: 14,
+    fontSize: 13,
     color: "rgba(255, 255, 255, 0.92)",
   },
   body: {
-    padding: "10px 12px 12px 12px",
+    padding: "9px 12px 12px 12px",
     borderTop: "1px solid rgba(255, 255, 255, 0.07)",
   },
   bodyInner: {
-    fontSize: 13,
-    lineHeight: 1.5,
+    fontSize: 12.5,
+    lineHeight: 1.45,
     color: "rgba(255,255,255,0.92)",
   },
   richText: {
-    lineHeight: 1.48,
+    lineHeight: 1.45,
     color: "rgba(255, 255, 255, 0.85)",
-    fontSize: 14,
+    fontSize: 13,
     wordBreak: "break-word",
   },
   richTextCompact: {
-    lineHeight: 1.4,
+    lineHeight: 1.38,
     color: "rgba(255, 255, 255, 0.85)",
-    fontSize: 13,
+    fontSize: 12.5,
     wordBreak: "break-word",
   },
 };
@@ -279,6 +279,6 @@ function getFactionAccent(factionId: string | undefined) {
 }
 
 function getPageBackground(rgb: string) {
-  return `radial-gradient(900px 500px at 70% 0%, rgba(${rgb}, 0.16), transparent 56%), radial-gradient(800px 500px at 10% -10%, rgba(${rgb}, 0.09), transparent 60%), #070A10`;
+  return `radial-gradient(900px 500px at 70% 0%, rgba(${rgb}, 0.12), transparent 56%), radial-gradient(800px 500px at 10% -10%, rgba(${rgb}, 0.07), transparent 60%), #070A10`;
 }
 

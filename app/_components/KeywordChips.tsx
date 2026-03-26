@@ -71,8 +71,8 @@ export default function KeywordChips({
               }}
               style={{
                 ...styles.chip,
-                borderColor: accentRgb ? `rgba(${accentRgb}, 0.35)` : styles.chip.border,
-                background: accentRgb ? `rgba(${accentRgb}, 0.14)` : styles.chip.background,
+                borderColor: accentRgb ? `rgba(${accentRgb}, 0.30)` : (styles.chip.border as string),
+                background: accentRgb ? `rgba(${accentRgb}, 0.11)` : (styles.chip.background as string),
               }}
               onClick={() =>
                 setOpenKeyword((cur) => {
@@ -92,8 +92,8 @@ export default function KeywordChips({
                   left: position.left,
                   transform: placement === "above" ? "translateY(-100%)" : "none",
                   borderColor: accentRgb
-                    ? `rgba(${accentRgb}, 0.35)`
-                    : styles.popover.border,
+                      ? `rgba(${accentRgb}, 0.30)`
+                      : (styles.popover.border as string),
                 }}
               >
                 <div style={styles.popoverTitle}>Units with {item.keyword}</div>
@@ -122,18 +122,18 @@ const styles: Record<string, CSSProperties> = {
     display: "flex",
     flexWrap: "wrap",
     gap: 8,
-    paddingTop: 4,
+    paddingTop: 3,
   },
   chipContainer: {
     position: "relative",
   },
   chip: {
     borderRadius: 9999,
-    padding: "6px 10px",
-    background: "rgba(255, 255, 255, 0.03)",
-    border: "1px solid rgba(255, 255, 255, 0.10)",
-    color: "rgba(255, 255, 255, 0.88)",
-    fontSize: 12,
+    padding: "5px 9px",
+    background: "rgba(255, 255, 255, 0.028)",
+    border: "1px solid rgba(255, 255, 255, 0.09)",
+    color: "rgba(255, 255, 255, 0.90)",
+    fontSize: 11.5,
     fontWeight: 850,
     letterSpacing: "-0.01em",
     cursor: "pointer",
@@ -141,21 +141,22 @@ const styles: Record<string, CSSProperties> = {
   popover: {
     position: "fixed",
     zIndex: 70,
-    width: 260,
+    width: 240,
     maxWidth: "calc(100vw - 16px)",
     borderRadius: 12,
-    border: "1px solid rgba(255, 255, 255, 0.12)",
-    background: "#0f1624",
-    boxShadow: "0 14px 36px rgba(0,0,0,0.35)",
-    padding: 10,
+    border: "1px solid rgba(255, 255, 255, 0.10)",
+    background: "rgba(10,14,22,0.93)",
+    backdropFilter: "blur(14px)",
+    boxShadow: "0 12px 34px rgba(0,0,0,0.40)",
+    padding: 9,
   },
   popoverTitle: {
-    fontSize: 11,
+    fontSize: 10.5,
     textTransform: "uppercase",
-    letterSpacing: "0.10em",
+    letterSpacing: "0.095em",
     color: "rgba(255,255,255,0.62)",
     fontWeight: 900,
-    marginBottom: 8,
+    marginBottom: 7,
   },
   popoverList: {
     display: "flex",

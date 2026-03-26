@@ -115,8 +115,8 @@ export default async function UnitPage({
           transition: all 0.2s ease;
         }
         .unitCardFx:hover {
-          border-color: rgba(${accent.rgb}, 0.38) !important;
-          box-shadow: 0 0 0 1px rgba(${accent.rgb}, 0.20), 0 12px 26px rgba(0,0,0,0.22);
+          border-color: rgba(${accent.rgb}, 0.30) !important;
+          box-shadow: 0 0 0 1px rgba(${accent.rgb}, 0.16), 0 14px 32px rgba(0,0,0,0.26);
         }
         .weaponColumns {
           display: none;
@@ -125,22 +125,22 @@ export default async function UnitPage({
           .weaponColumns {
             display: grid;
             grid-template-columns: 2.25fr repeat(6, minmax(0, 1fr));
-            gap: 10px;
-            padding: 8px 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            gap: 8px;
+            padding: 7px 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
             background: rgba(255,255,255,0.02);
-            font-size: 12px;
-            letter-spacing: 0.06em;
+            font-size: 11.5px;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.62);
-            font-weight: 800;
+            color: rgba(255,255,255,0.58);
+            font-weight: 900;
           }
           .weaponRow {
             display: grid;
             grid-template-columns: 2.25fr repeat(6, minmax(0, 1fr));
-            gap: 10px;
-            padding: 9px 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            gap: 8px;
+            padding: 8px 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             align-items: start;
           }
           .weaponTop {
@@ -150,7 +150,7 @@ export default async function UnitPage({
             grid-column: 2 / 8;
             display: grid;
             grid-template-columns: repeat(6, minmax(0, 1fr));
-            gap: 10px;
+            gap: 8px;
             margin-top: 0;
           }
           .weaponStatLabel {
@@ -159,27 +159,27 @@ export default async function UnitPage({
         }
         @media (max-width: 680px) {
           .weaponRow {
-            padding: 9px 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.07);
+            padding: 8px 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
           }
           .weaponTop {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 4px;
           }
           .weaponStats {
             margin-top: 7px;
             display: grid;
             grid-template-columns: repeat(6, minmax(0, 1fr));
-            gap: 6px;
+            gap: 5px;
           }
           .weaponStatLabel {
-            font-size: 10px;
+            font-size: 9.5px;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: rgba(255,255,255,0.62);
-            font-weight: 800;
-            line-height: 1.15;
+            letter-spacing: 0.055em;
+            color: rgba(255,255,255,0.58);
+            font-weight: 900;
+            line-height: 1.1;
           }
         }
       `}</style>
@@ -492,14 +492,14 @@ function getFactionAccent(factionId: string | undefined) {
   const rgb = presets.find((p) => p.test(f))?.rgb ?? "90, 130, 210";
   return {
     rgb,
-    border: `rgba(${rgb}, 0.35)`,
-    softBg: `rgba(${rgb}, 0.12)`,
-    muted: `rgba(${rgb}, 0.78)`,
+    border: `rgba(${rgb}, 0.28)`,
+    softBg: `rgba(${rgb}, 0.09)`,
+    muted: `rgba(${rgb}, 0.70)`,
   };
 }
 
 function getPageBackground(rgb: string) {
-  return `radial-gradient(900px 500px at 70% 0%, rgba(${rgb}, 0.18), transparent 55%), radial-gradient(800px 500px at 10% -10%, rgba(${rgb}, 0.10), transparent 60%), #070A10`;
+  return `radial-gradient(900px 500px at 70% 0%, rgba(${rgb}, 0.14), transparent 55%), radial-gradient(800px 500px at 10% -10%, rgba(${rgb}, 0.08), transparent 60%), #070A10`;
 }
 
 function renderStatBadge(label: string, value: string | undefined) {
@@ -597,20 +597,20 @@ const styles: Record<string, CSSProperties> = {
     maxWidth: "100%",
     color: "rgba(255, 255, 255, 0.92)",
     background:
-      "radial-gradient(900px 500px at 70% 0%, rgba(59, 130, 246, 0.18), transparent 55%), radial-gradient(800px 500px at 10% -10%, rgba(74, 222, 128, 0.14), transparent 60%), #070A10",
+      "radial-gradient(900px 500px at 70% 0%, rgba(59, 130, 246, 0.14), transparent 55%), radial-gradient(800px 500px at 10% -10%, rgba(74, 222, 128, 0.10), transparent 60%), #070A10",
     overflowX: "hidden",
   },
   container: {
     width: "100%",
     maxWidth: 1200,
     margin: "0 auto",
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingLeft: 14,
+    paddingRight: 14,
     paddingTop: 0,
     paddingBottom: 0,
   },
   headerRow: {
-    paddingTop: 8,
+    paddingTop: 6,
     paddingBottom: 10,
     display: "flex",
     alignItems: "stretch",
@@ -704,43 +704,43 @@ const styles: Record<string, CSSProperties> = {
     boxShadow: "0 20px 60px rgba(0,0,0,0.20)",
   },
   card: {
-    borderRadius: 13,
-    border: "1px solid rgba(255, 255, 255, 0.08)",
+    borderRadius: 12,
+    border: "1px solid rgba(255, 255, 255, 0.07)",
     background: "rgba(255, 255, 255, 0.02)",
     padding: 10,
-    boxShadow: "0 10px 28px rgba(0,0,0,0.18)",
+    boxShadow: "0 10px 28px rgba(0,0,0,0.16)",
     backdropFilter: "blur(6px)",
     transition: "all 0.2s ease",
   },
   cardTitle: {
-    fontSize: 13,
+    fontSize: 12,
     textTransform: "uppercase",
-    letterSpacing: "0.06em",
-    color: "rgba(255, 255, 255, 0.66)",
-    fontWeight: 800,
-    marginBottom: 7,
+    letterSpacing: "0.055em",
+    color: "rgba(255, 255, 255, 0.62)",
+    fontWeight: 900,
+    marginBottom: 6,
   },
   loadoutInline: {
     borderRadius: 12,
     border: "1px solid rgba(255, 255, 255, 0.08)",
     background: "rgba(255, 255, 255, 0.02)",
-    padding: "10px 12px",
-    marginBottom: 10,
+    padding: "9px 11px",
+    marginBottom: 8,
   },
   weaponGroupTitle: {
-    fontSize: 12.5,
+    fontSize: 12,
     textTransform: "uppercase",
-    letterSpacing: "0.08em",
-    color: "rgba(255, 255, 255, 0.76)",
-    fontWeight: 900,
+    letterSpacing: "0.075em",
+    color: "rgba(255, 255, 255, 0.72)",
+    fontWeight: 950,
     marginBottom: 0,
   },
   weaponGroupBar: {
-    borderRadius: 9,
+    borderRadius: 10,
     border: "1px solid rgba(255, 255, 255, 0.10)",
-    background: "rgba(255, 255, 255, 0.04)",
-    padding: "7px 10px",
-    marginBottom: 7,
+    background: "rgba(255, 255, 255, 0.035)",
+    padding: "6px 9px",
+    marginBottom: 6,
   },
   sectionDivider: {
     height: 1,
@@ -750,7 +750,7 @@ const styles: Record<string, CSSProperties> = {
   list: {
     display: "flex",
     flexDirection: "column",
-    gap: 10,
+    gap: 9,
   },
   subCard: {
     borderRadius: 14,
@@ -767,28 +767,28 @@ const styles: Record<string, CSSProperties> = {
   statBadgesRow: {
     display: "flex",
     flexWrap: "wrap",
-    gap: 8,
+    gap: 7,
   },
   statBadge: {
     borderRadius: 9999,
     border: "1px solid rgba(255, 255, 255, 0.10)",
-    background: "rgba(255, 255, 255, 0.03)",
-    padding: "7px 10px",
+    background: "rgba(255, 255, 255, 0.028)",
+    padding: "6px 9px",
     display: "flex",
     alignItems: "baseline",
     gap: 8,
-    minWidth: 78,
+    minWidth: 76,
   },
   statBadgeLabel: {
     fontSize: 11,
     textTransform: "uppercase",
     letterSpacing: "0.12em",
-    color: "rgba(255, 255, 255, 0.55)",
-    fontWeight: 900,
+    color: "rgba(255, 255, 255, 0.54)",
+    fontWeight: 950,
   },
   statBadgeValue: {
-    fontSize: 18,
-    fontWeight: 600,
+    fontSize: 17,
+    fontWeight: 650,
     color: "rgba(255, 255, 255, 0.92)",
     wordBreak: "break-word",
   },
@@ -810,15 +810,15 @@ const styles: Record<string, CSSProperties> = {
   modelsWrap: {
     display: "flex",
     flexDirection: "column",
-    gap: 10,
+    gap: 9,
   },
   weaponTable: {
-    borderRadius: 11,
+    borderRadius: 12,
     border: "1px solid rgba(255, 255, 255, 0.08)",
     overflow: "hidden",
     width: "100%",
     backdropFilter: "blur(6px)",
-    background: "rgba(255,255,255,0.015)",
+    background: "rgba(255,255,255,0.012)",
   },
   weaponRowLast: {
     borderBottom: "none",
@@ -826,10 +826,10 @@ const styles: Record<string, CSSProperties> = {
   weaponCellName: {
     fontWeight: 600,
     letterSpacing: "-0.01em",
-    fontSize: 17,
+    fontSize: 16,
     wordBreak: "keep-all",
     overflowWrap: "break-word",
-    lineHeight: 1.25,
+    lineHeight: 1.2,
   },
   weaponColCenter: {
     textAlign: "center",
@@ -842,8 +842,8 @@ const styles: Record<string, CSSProperties> = {
     minWidth: 0,
   },
   weaponStatValue: {
-    fontSize: 16.5,
-    fontWeight: 600,
+    fontSize: 15.5,
+    fontWeight: 650,
     color: "rgba(255, 255, 255, 0.93)",
     whiteSpace: "nowrap",
     textAlign: "center",
@@ -851,43 +851,43 @@ const styles: Record<string, CSSProperties> = {
   abilitiesWrap: {
     display: "flex",
     flexDirection: "column",
-    gap: 10,
+    gap: 9,
   },
   abilityDetails: {
     borderRadius: 12,
-    border: "1px solid rgba(255, 255, 255, 0.08)",
+    border: "1px solid rgba(255, 255, 255, 0.07)",
     background: "rgba(255, 255, 255, 0.02)",
     overflow: "hidden",
     transition: "all 0.2s ease",
   },
   abilitySummary: {
     cursor: "pointer",
-    padding: "10px 12px",
+    padding: "9px 12px",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     gap: 12,
     listStyle: "none",
-    fontWeight: 950,
+    fontWeight: 900,
     letterSpacing: "-0.01em",
   },
   abilitySummaryText: {
-    fontSize: 14,
+    fontSize: 13,
     color: "rgba(255, 255, 255, 0.92)",
   },
   abilityBody: {
-    padding: "8px 10px 10px 10px",
+    padding: "7px 10px 10px 10px",
     borderTop: "1px solid rgba(255, 255, 255, 0.07)",
     maxHeight: 260,
     overflowY: "auto",
   },
   weaponBody: {
-    padding: "10px 12px 12px 12px",
+    padding: "9px 12px 10px 12px",
     borderTop: "1px solid rgba(255, 255, 255, 0.07)",
   },
   abilityBodyInner: {
-    fontSize: 13,
-    lineHeight: 1.5,
+    fontSize: 12.5,
+    lineHeight: 1.45,
   },
   compositionItem: {
     padding: 0,
@@ -896,34 +896,34 @@ const styles: Record<string, CSSProperties> = {
     fontSize: 12,
     textTransform: "uppercase",
     letterSpacing: "0.12em",
-    color: "rgba(255, 255, 255, 0.56)",
+    color: "rgba(255, 255, 255, 0.52)",
     fontWeight: 800,
-    marginBottom: 8,
+    marginBottom: 7,
   },
   richText: {
     whiteSpace: "pre-wrap",
-    lineHeight: 1.48,
+    lineHeight: 1.45,
     color: "rgba(255, 255, 255, 0.85)",
-    fontSize: 14,
+    fontSize: 13,
     wordBreak: "break-word",
   },
   richTextCompact: {
     whiteSpace: "pre-wrap",
-    lineHeight: 1.4,
+    lineHeight: 1.38,
     color: "rgba(255, 255, 255, 0.85)",
-    fontSize: 13,
+    fontSize: 12.5,
     wordBreak: "break-word",
   },
   richTextHtml: {
-    lineHeight: 1.55,
+    lineHeight: 1.5,
     color: "rgba(255, 255, 255, 0.92)",
-    fontSize: 14,
+    fontSize: 13,
     wordBreak: "break-word",
   },
   richTextHtmlCompact: {
-    lineHeight: 1.45,
+    lineHeight: 1.42,
     color: "rgba(255, 255, 255, 0.92)",
-    fontSize: 13,
+    fontSize: 12.5,
     wordBreak: "break-word",
   },
 };

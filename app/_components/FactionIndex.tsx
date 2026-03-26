@@ -29,8 +29,8 @@ export default function FactionIndex({ factions }: { factions: Faction[] }) {
         }
         .factionCard:hover {
           transform: translateY(-1px);
-          border-color: rgba(255, 255, 255, 0.18);
-          background: rgba(255, 255, 255, 0.03);
+          border-color: rgba(255, 255, 255, 0.14);
+          background: rgba(255, 255, 255, 0.025);
         }
         .factionCard:active {
           transform: translateY(0);
@@ -88,37 +88,6 @@ export default function FactionIndex({ factions }: { factions: Faction[] }) {
               >
                 <div style={styles.cardTop}>
                   <div style={styles.cardName}>{item.name}</div>
-                  <div style={styles.cardChevron} aria-hidden="true">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M14 5H19V10"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M10 14L19 5"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M19 14V19H5V5H10"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
                 </div>
               </a>
             ))}
@@ -133,26 +102,26 @@ const styles: Record<string, CSSProperties> = {
   page: {
     minHeight: "100vh",
     background:
-      "radial-gradient(1200px 600px at 20% -10%, rgba(74, 222, 128, 0.14), transparent 60%), radial-gradient(900px 500px at 90% 0%, rgba(59, 130, 246, 0.18), transparent 55%), #070A10",
+      "radial-gradient(1200px 600px at 20% -10%, rgba(74, 222, 128, 0.10), transparent 60%), radial-gradient(900px 500px at 90% 0%, rgba(59, 130, 246, 0.14), transparent 55%), #070A10",
     color: "rgba(255, 255, 255, 0.92)",
   },
   header: {
     position: "sticky",
     top: 0,
     zIndex: 20,
-    background: "rgba(7, 10, 16, 0.72)",
+    background: "rgba(7, 10, 16, 0.62)",
     backdropFilter: "blur(10px)",
-    borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+    borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
   },
   headerInner: {
-    padding: "16px 14px",
+    padding: "14px 14px",
     maxWidth: 960,
     margin: "0 auto",
   },
   title: {
     margin: 0,
-    fontSize: 22,
-    letterSpacing: "-0.02em",
+    fontSize: 20,
+    letterSpacing: "-0.015em",
     fontWeight: 800,
   },
   searchWrap: {
@@ -170,17 +139,17 @@ const styles: Record<string, CSSProperties> = {
   },
   searchInput: {
     width: "100%",
-    height: 42,
+    height: 40,
     borderRadius: 12,
     border: "1px solid rgba(255, 255, 255, 0.12)",
-    background: "rgba(255, 255, 255, 0.04)",
+    background: "rgba(255, 255, 255, 0.035)",
     outline: "none",
     padding: "0 12px 0 36px",
     color: "rgba(255, 255, 255, 0.92)",
-    boxShadow: "0 10px 30px rgba(0,0,0,0.18)",
+    boxShadow: "0 8px 24px rgba(0,0,0,0.16)",
   },
   main: {
-    padding: "14px",
+    padding: "12px",
     maxWidth: 960,
     margin: "0 auto",
   },
@@ -193,10 +162,10 @@ const styles: Record<string, CSSProperties> = {
   card: {
     flex: "1 1 260px",
     minWidth: 260,
-    borderRadius: 16,
-    border: "1px solid rgba(255, 255, 255, 0.10)",
-    background: "rgba(255, 255, 255, 0.02)",
-    padding: 14,
+    borderRadius: 14,
+    border: "1px solid rgba(255, 255, 255, 0.09)",
+    background: "rgba(255, 255, 255, 0.018)",
+    padding: 12,
   },
   cardTop: {
     display: "flex",
@@ -215,8 +184,8 @@ const styles: Record<string, CSSProperties> = {
   empty: {
     padding: 16,
     borderRadius: 16,
-    border: "1px dashed rgba(255, 255, 255, 0.14)",
-    background: "rgba(255, 255, 255, 0.02)",
+    border: "1px dashed rgba(255, 255, 255, 0.12)",
+    background: "rgba(255, 255, 255, 0.018)",
     color: "rgba(255, 255, 255, 0.72)",
     fontWeight: 700,
   },

@@ -29,8 +29,8 @@ export default function UnitSearchList({ units }: { units: Unit[] }) {
         }
         .unitCard:hover {
           transform: translateY(-1px);
-          border-color: rgba(255, 255, 255, 0.18);
-          background: rgba(255, 255, 255, 0.03);
+          border-color: rgba(255, 255, 255, 0.14);
+          background: rgba(255, 255, 255, 0.025);
         }
         .unitCard:active {
           transform: translateY(0);
@@ -81,7 +81,6 @@ export default function UnitSearchList({ units }: { units: Unit[] }) {
               style={styles.unitCard}
             >
               <div style={styles.unitName}>{u.name}</div>
-              <div style={styles.unitHint}>View details</div>
             </a>
           ))
         )}
@@ -92,7 +91,7 @@ export default function UnitSearchList({ units }: { units: Unit[] }) {
 
 const styles: Record<string, CSSProperties> = {
   section: {
-    marginTop: 16,
+    marginTop: 14,
   },
   searchWrap: {
     marginTop: 0,
@@ -119,32 +118,32 @@ const styles: Record<string, CSSProperties> = {
     boxShadow: "0 10px 30px rgba(0,0,0,0.18)",
   },
   list: {
-    marginTop: 14,
+    marginTop: 12,
     display: "flex",
     flexDirection: "column",
-    gap: 12,
+    gap: 10,
     paddingBottom: 28,
   },
   unitCard: {
-    borderRadius: 16,
-    border: "1px solid rgba(255, 255, 255, 0.10)",
-    background: "#111827",
-    padding: 16,
+    borderRadius: 14,
+    border: "1px solid rgba(255, 255, 255, 0.09)",
+    background: "rgba(255, 255, 255, 0.018)",
+    padding: 12,
   },
   unitName: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: 700,
     letterSpacing: "-0.01em",
   },
   unitHint: {
-    marginTop: 8,
-    color: "rgba(255, 255, 255, 0.62)",
-    fontSize: 13,
+    marginTop: 7,
+    color: "rgba(255, 255, 255, 0.58)",
+    fontSize: 12,
   },
   empty: {
-    borderRadius: 16,
-    border: "1px dashed rgba(255, 255, 255, 0.14)",
-    background: "rgba(255, 255, 255, 0.02)",
+    borderRadius: 14,
+    border: "1px dashed rgba(255, 255, 255, 0.12)",
+    background: "rgba(255, 255, 255, 0.018)",
     padding: 16,
     color: "rgba(255, 255, 255, 0.70)",
     fontWeight: 700,
